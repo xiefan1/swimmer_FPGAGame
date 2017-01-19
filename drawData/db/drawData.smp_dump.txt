@@ -1,0 +1,11 @@
+
+State Machine - |drawData|dataPrint:d|presentState
+Name presentState.EXIT_S presentState.CLEAR_S presentState.SWITCH_S presentState.DRAWP_S presentState.DRAWB2_S presentState.DRAWB1_S presentState.LOAD_S presentState.RESET_S 
+presentState.RESET_S 0 0 0 0 0 0 0 0 
+presentState.LOAD_S 0 0 0 0 0 0 1 1 
+presentState.DRAWB1_S 0 0 0 0 0 1 0 1 
+presentState.DRAWB2_S 0 0 0 0 1 0 0 1 
+presentState.DRAWP_S 0 0 0 1 0 0 0 1 
+presentState.SWITCH_S 0 0 1 0 0 0 0 1 
+presentState.CLEAR_S 0 1 0 0 0 0 0 1 
+presentState.EXIT_S 1 0 0 0 0 0 0 1 

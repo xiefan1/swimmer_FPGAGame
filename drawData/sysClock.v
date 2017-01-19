@@ -1,0 +1,19 @@
+module sysClock (input clk, output enable);
+wire [19:0] cyclesPerFrame = 20'd833_333; //250
+//k is a helper reg element that gets assigned to the enable output
+reg k;
+//sysCount increments with every clock update
+reg [19:0] sysCount;
+//initialize sysCount to 0 so system knows what to add on to
+initial begin sysCount = 20'd0; end
+
+always @ (posedge clk) begin
+	//>= because sometimes sysCount already overflows divider before the new divider sets in
+	if (sysCount >= cyclesPerFrame) sysCount <= 20'd0; //counter: reset every 1+cyclesPerFrame clock edges
+	else sysCount <= sysCount + 1'd1;
+	//ternary
+	k <= (sysCount == cyclesPerFrame)?1'b1:1'b0;
+	end
+assign enable = k;
+endmodule
+
