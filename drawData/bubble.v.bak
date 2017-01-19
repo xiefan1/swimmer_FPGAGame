@@ -1,0 +1,9 @@
+module bubble(input fps_enable, input [2:0] xInit, input [2:0] yInit, output reg [7:0] xOut, output reg [6:0] yOut);
+
+//user enter location
+always @(posedge fps_enable) begin
+xOut <= {3'b110, xInit};
+yOut <= {3'b001, yInit};
+end
+
+endmodule
